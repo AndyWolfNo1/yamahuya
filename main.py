@@ -20,7 +20,7 @@ def print_data(name):
         timee = datetime.datetime.now()
         JWT = cookies_user['cookie']
         her_obj = take_one_hero(all_users, name, JWT, timee)
-        if(len(her_obj.statistics[0]) > 32):
+        if(her_obj.statistics == False):
             nation = 'Brak danych'
             sojusz = 'Brak danych'
             pop = 'Brak danych'
