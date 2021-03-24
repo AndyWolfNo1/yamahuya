@@ -1,0 +1,37 @@
+body{
+    background-color: #a9fa87;
+    padding:40px;
+}
+
+#add{
+    background-color: darkcyan;
+}
+
+#hero{
+    font-size:0.8em;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding:20px;
+    float:left;
+    margin:20px;
+    background-color: #e3e4e6;
+}
+
+#last_scan{
+    font-size:0.8em;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding:20px;
+    float:left;
+    margin:20px;
+    background-color: #e3e4e6;
+}
+
+#add_cookies{
+    float:right;
+    margin:20px;
+}
+
+#status{
+    font-size:1.2em;
+}

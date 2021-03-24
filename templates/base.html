@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+      <title>Bolkowy gród</title>
+    </head>
+    <body>
+        <div>Linki: <br> <a href="https://azot-potas.pl/ataki/admin.php" target="_blank">AdminPanel</a></div>
+        <a href="https://azot-potas.pl/ataki/" target="_blank">Zgłaszarka</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
