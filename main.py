@@ -45,6 +45,7 @@ def print_data(name):
             data_time2 = 'Brak danych'
             link_last_image = 'Brak danych'
             link_image_now = 'Brak danych'
+            link_last_image2 = 'Brak danych'
         else:
             nation = len(her_obj.statistics[0])
             sojusz = her_obj.statistics[1]
