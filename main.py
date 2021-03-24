@@ -17,8 +17,9 @@ def index():
 @app.route("/<name>", methods = ['GET', 'POST', 'DELETE'])
 def print_data(name):
         all_users, cookies_user = bazaDanych()
+        timee = datetime.datetime.now()
         JWT = cookies_user['cookie']
-        her_obj = take_one_hero(all_users, name, JWT)
+        her_obj = take_one_hero(all_users, name, JWT, timee)
         if(len(her_obj.statistics[0]) > 32):
             nation = 'Brak danych'
             sojusz = 'Brak danych'
@@ -65,8 +66,8 @@ def print_data(name):
             last_scan_time = last_scan_time
             data_time = last_scan_time.strftime("%Y-%m-%d %H:%M:%S")
             time_now = her_obj.time.strftime("%H:%M:%S")
-            link_last_image = 'http://localhost/image/'+data_time[0:10]+'/'+her_obj.name+'_'+data_time[11:]+'.png'
-            link_image_now = 'http://localhost/image/'+data_time[0:10]+'/'+her_obj.name+'_'+time_now+'.png'
+            link_last_image = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+data_time[11:]+'.png'
+            link_image_now = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+time_now+'.png'
             status_last_scan = her_obj.status_last_scan
             now_scan_time= her_obj.time.strftime("%Y-%m-%d %H:%M:%S")
         return render_template('index.html',

@@ -8,13 +8,13 @@ from datetime import datetime
 import datetime
 
 class Hero:
-    def __init__(self, hero_dict, JWT):
+    def __init__(self, hero_dict, JWT, timee):
         self.JWT = JWT
         self.status = ''
         self.name = hero_dict['name']
         self.link = hero_dict['gamer_link']
         self.soup = get_soup(JWT, self.link)
-        self.time = datetime.datetime.now()
+        self.time = timee
         self.date = datetime.date.today()
         self.create_html_soup()
         self.image_link = self.get_image_link()
