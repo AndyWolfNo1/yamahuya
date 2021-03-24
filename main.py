@@ -42,6 +42,7 @@ def print_data(name):
             last_scan_hero_lvl = 'Brak danych'
             last_scan_time = 'Brak danych'
             data_time = 'Brak danych'
+            data_time2 = 'Brak danych'
             link_last_image = 'Brak danych'
             link_image_now = 'Brak danych'
         else:
@@ -65,16 +66,21 @@ def print_data(name):
             last_scan_time = her_obj.last_scan['czas']
             last_scan_time = last_scan_time
             data_time = last_scan_time.strftime("%Y-%m-%d %H:%M:%S")
+            data_time2 = last_scan_time.strftime("%Y-%m-%d %H:%M:%S")
+            data_time2 = data_time - datetime.timedelta(0,1)
             time_now = her_obj.time.strftime("%H:%M:%S")
             link_last_image = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+data_time[11:]+'.png'
+            link_last_image2 = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+data_time2[11:]+'.png'
             link_image_now = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+time_now+'.png'
             status_last_scan = her_obj.status_last_scan
             now_scan_time= her_obj.time.strftime("%Y-%m-%d %H:%M:%S")
         return render_template('index.html',
                                hero_lvl=hero_lvl,
                                link_last_image=link_last_image,
+                               link_last_image2=link_last_image2,
                                now_scan_time=now_scan_time,
                                status_last_scan=status_last_scan,
+                               link_last_image2=link_last_image2;
                                last_scan_time=last_scan_time,
                                link_image_now=link_image_now,
                                last_scan_hero_lvl=last_scan_hero_lvl,
