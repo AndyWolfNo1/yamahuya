@@ -80,7 +80,7 @@ def print_data(name):
                                link_last_image2=link_last_image2,
                                now_scan_time=now_scan_time,
                                status_last_scan=status_last_scan,
-                               link_last_image2=link_last_image2;
+                               link_last_image2=link_last_image2,
                                last_scan_time=last_scan_time,
                                link_image_now=link_image_now,
                                last_scan_hero_lvl=last_scan_hero_lvl,
