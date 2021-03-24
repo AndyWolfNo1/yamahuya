@@ -5,10 +5,10 @@ import datetime
 
 
 
-def take_one_hero(all_users, name, JWT):
+def take_one_hero(all_users, name, JWT, timee):
     for i in all_users:
         if(i['name'].lower() == name.lower()):
-            obj = Hero(i, JWT)
+            obj = Hero(i, JWT, timee)
             return obj
 
 
