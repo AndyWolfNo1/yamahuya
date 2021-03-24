@@ -74,8 +74,8 @@ def save_image(JWT, link, name, time, ddate):
 
     soup = bs(r.text, 'html.parser')
 
-    link = '/var/www/html/image/'+str(ddate)+'/'+name+'_'+time+'.png'
-    sprawdz = '/var/www/html/image/'+str(ddate)
+    link = '/var/www/azot-potas.pl/public-html/image/'+str(ddate)+'/'+name+'_'+time+'.png'
+    sprawdz = '/var/www/zot-potas.pl/public-html/image/'+str(ddate)
     if (path.exists(sprawdz)):
         file = open(link, 'wb')
         file.write(r.content)
