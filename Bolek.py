@@ -152,6 +152,7 @@ class Hero:
         l_l_i = self.last_scan['link_img']
         now_off = self.statistics[3]
         now_hero_exp = self.statistics[5]
+        last_hero_exp = self.last_scan['herolvl']
 
         if (l_l_i != self.il and l_off != now_off):
             self.status_last_scan = "Zmieniły się punkty off oraz bohater gracza"
@@ -168,3 +169,6 @@ class Hero:
         # else:
         #     self.status_last_scan = "Bez zmian"
         # self.status_last_scan = l_l_i+'\n'+now_hero
+
+        if (now_hero_exp  != last_hero_exp):
+            self.status_last_scan += "\n Zmienił się EXP!"
