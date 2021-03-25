@@ -12,14 +12,6 @@
 
 </div>
 <H2>Skanuj swoje ofiary z pasją!</H2>
-<!--<div id="add_cookies">-->
-<!--   <form action="" method="post">-->
-<!--      <label for="add_cookie">Dodaj cisateczko:</label><br>-->
-<!--      <textarea id="add_cookie" name="cookie" rows="23" cols="50">ctrl+a ctrl+v-->
-<!--      </textarea>-->
-<!--      <input type="submit" value="zapodaj">-->
-<!--   </form>-->
-<!--</div>-->
 <div id="hero">
  {% if name_hero %}
 <h2>Obecny skan</h2>
@@ -29,10 +21,7 @@ Link gracza: <b>{{ link_hero }}</b>
 <br><br>
 Link do zdjęcia bolka: <b>{{ link_image }}</b>
 <br><br>
-<!--   Nacja: <b>{{nation}}</b>
-<br><br>
-Sojusz: <b>{{sojusz}}</b>
-<br><br> -->
+
 Pozycja w pop: <b>{{pop}}</b>
 <br><br>
 Pozycja w off: <b>{{off}}</b>
@@ -44,7 +33,7 @@ Bolesław: <b> lvl: {{hero_lvl}}</b>
 <br><br>
 Obecny skan: <b>{{now_scan_time}}</b>
 <br><br>
-<!--      <img src="http://localhost/image/2021-03-24/Oprawca_16:36:31.png">-->
+
 <img src="{{link_image_now}}">
 
 <!--   <img src="">-->
@@ -53,8 +42,7 @@ Obecny skan: <b>{{now_scan_time}}</b>
 <span id="status"><b>Status skanu:</b></span> <strong style="color:#ff0000;">{{ status_last_scan }}</strong>
 {% endif %}
 </div>
-<!--<div style="clear:both"></div>-->
-<!--<br>-->
+
 <div id="last_scan">
 {% if name_hero %}
 <h2>Poprzedni skan</h2>
@@ -79,5 +67,4 @@ Ostatni skan: <b>{{last_scan_time}}</b>
 </div>
 <br><br><br><br>
 
-<!--{{now_scan_time}}-->
 {% endblock %}
