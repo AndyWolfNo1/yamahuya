@@ -6,8 +6,6 @@ from datetime import datetime
 import datetime
 
 app = Flask(__name__)
-# all_users, cookies_user = bazaDanych()
-# JWT = cookies_user['cookie']
 
 @app.route("/")
 def index():
@@ -20,7 +18,37 @@ def print_data(name):
         timee = datetime.datetime.now()
         JWT = cookies_user['cookie']
         her_obj = take_one_hero(all_users, name, JWT, timee)
-        if(her_obj.statistics == False):
+        try:
+            nation = len(her_obj.statistics[0])
+            sojusz = her_obj.statistics[1]
+            pop = her_obj.statistics[2]
+            off = her_obj.statistics[3]
+            deff = her_obj.statistics[4]
+            hero_lvl = her_obj.statistics[5]
+            link_hero = her_obj.link
+            statuss = her_obj.status
+            soup = her_obj.soup
+            il = her_obj.il
+            name_hero = her_obj.name
+            last_scan_name = her_obj.last_scan['name']
+            last_scan_il = her_obj.last_scan['link_img']
+            last_scan_pop = her_obj.last_scan['pop']
+            last_scan_off = her_obj.last_scan['off']
+            last_scan_deff = her_obj.last_scan['deff']
+            last_scan_hero_lvl = her_obj.last_scan['herolvl']
+            last_scan_time = her_obj.last_scan['czas']
+            last_scan_time = last_scan_time
+            data_time = last_scan_time.strftime("%Y-%m-%d %H:%M:%S")
+            data_time2 = last_scan_time
+            data_time2 = data_time2 - datetime.timedelta(0, 1)
+            data_time2 = data_time2.strftime("%Y-%m-%d %H:%M:%S")
+            time_now = her_obj.time.strftime("%H:%M:%S")
+            link_last_image = 'https://azot-potas.pl/image/' + data_time[0:10] + '/' + her_obj.name + '_' + data_time[11:] + '.png'
+            link_last_image2 = 'https://azot-potas.pl/image/' + data_time[0:10] + '/' + her_obj.name + '_' + data_time2[11:] + '.png'
+            link_image_now = 'https://azot-potas.pl/image/' + data_time[0:10] + '/' + her_obj.name + '_' + time_now + '.png'
+            status_last_scan = her_obj.status_last_scan
+            now_scan_time = her_obj.time.strftime("%Y-%m-%d %H:%M:%S")
+        except:
             nation = 'Brak danych'
             sojusz = 'Brak danych'
             pop = 'Brak danych'
@@ -46,36 +74,6 @@ def print_data(name):
             link_last_image = 'Brak danych'
             link_image_now = 'Brak danych'
             link_last_image2 = 'Brak danych'
-        else:
-            nation = len(her_obj.statistics[0])
-            sojusz = her_obj.statistics[1]
-            pop = her_obj.statistics[2]
-            off = her_obj.statistics[3]
-            deff = her_obj.statistics[4]
-            hero_lvl = her_obj.statistics[5]
-            link_hero = her_obj.link
-            statuss = her_obj.status
-            soup = her_obj.soup
-            il = her_obj.il
-            name_hero = her_obj.name
-            last_scan_name = her_obj.last_scan['name']
-            last_scan_il = her_obj.last_scan['link_img']
-            last_scan_pop = her_obj.last_scan['pop']
-            last_scan_off = her_obj.last_scan['off']
-            last_scan_deff = her_obj.last_scan['deff']
-            last_scan_hero_lvl = her_obj.last_scan['herolvl']
-            last_scan_time = her_obj.last_scan['czas']
-            last_scan_time = last_scan_time
-            data_time = last_scan_time.strftime("%Y-%m-%d %H:%M:%S")
-            data_time2 = last_scan_time
-            data_time2 = data_time2 - datetime.timedelta(0,1)
-            data_time2 = data_time2.strftime("%Y-%m-%d %H:%M:%S")
-            time_now = her_obj.time.strftime("%H:%M:%S")
-            link_last_image = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+data_time[11:]+'.png'
-            link_last_image2 = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+data_time2[11:]+'.png'
-            link_image_now = 'https://azot-potas.pl/image/'+data_time[0:10]+'/'+her_obj.name+'_'+time_now+'.png'
-            status_last_scan = her_obj.status_last_scan
-            now_scan_time= her_obj.time.strftime("%Y-%m-%d %H:%M:%S")
         return render_template('index.html',
                                hero_lvl=hero_lvl,
                                link_last_image=link_last_image,
@@ -101,7 +99,6 @@ def print_data(name):
                                link_image=il,
                                link_hero=link_hero,
                                soup=soup)
-        # return render_template('index.html', statuss=statuss, statistic=statistic, name_hero=name_hero, link_image=il, link_hero=link_hero, soup=soup)
 
 @app.route("/add/<cookie>" , methods = ['GET', 'POST', 'DELETE'])
 def add_kookie(cookie):
