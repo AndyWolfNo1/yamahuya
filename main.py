@@ -74,6 +74,7 @@ def print_data(name):
             link_last_image = 'Brak danych'
             link_image_now = 'Brak danych'
             link_last_image2 = 'Brak danych'
+            status_last_scan = 'Brak danych'
         return render_template('index.html',
                                hero_lvl=hero_lvl,
                                link_last_image=link_last_image,
